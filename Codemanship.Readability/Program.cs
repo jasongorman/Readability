@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Codemanship.Readability
 {
-    internal class Program
+    public class Program
     {
-        private static void Main(string[] args)
+        public static void Main(string[] args)
         {
             WriteHeader();
 
@@ -28,13 +28,16 @@ namespace Codemanship.Readability
         {
             SourceTokenizer sourceTokenizer = new SourceTokenizer();
             CamelPascalCaseParser camelPascalCaseParser = new CamelPascalCaseParser();
+
             var sourceWordParser = new SourceCodeParser(sourceTokenizer, camelPascalCaseParser);
+
             var readingEaseCalculator =
                 new ReadingEaseCalculator(source,
                     new SyllableCounter(),
                     new LineCounter(),
                     sourceWordParser
                     );
+
             return readingEaseCalculator;
         }
 

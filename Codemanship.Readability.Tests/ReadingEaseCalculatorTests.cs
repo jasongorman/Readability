@@ -37,7 +37,12 @@ namespace Codemanship.Readability.Tests
                                 = longVariableNameWithManySyllables * longVariableNameWithManySyllables;";
             SourceTokenizer sourceTokenizer = new SourceTokenizer();
             CamelPascalCaseParser camelPascalCaseParser = new CamelPascalCaseParser();
-            Assert.That(new ReadingEaseCalculator(input, new SyllableCounter(), new LineCounter(), new SourceCodeParser(sourceTokenizer, camelPascalCaseParser)).ReadingEase(), Is.EqualTo(51.6).Within(0.1));
+            var readingEaseCalculator = new ReadingEaseCalculator(input, 
+                new SyllableCounter(), 
+                new LineCounter(), 
+                new SourceCodeParser(sourceTokenizer, camelPascalCaseParser));
+            var readingEase = readingEaseCalculator.ReadingEase();
+            Assert.That(readingEase, Is.EqualTo(51.6).Within(0.1));
         }
     }
 }

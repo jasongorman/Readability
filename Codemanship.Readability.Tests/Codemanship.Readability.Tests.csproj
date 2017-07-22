@@ -46,6 +46,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CamelPascalCaseParserTests.cs" />
+    <Compile Include="ProgramTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReadingEaseCalculatorTests.cs" />
     <Compile Include="SourceTokenizerTests.cs" />
